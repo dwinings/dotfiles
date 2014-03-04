@@ -12,6 +12,6 @@ echo Installing files from $SOURCE_DIR into $INSTALL_DIR
 
 
 for f in $FILES; do
-    cp -R "$f"  "$INSTALL_DIR"/."$(basename $f)"
+    ln -s "$f"  "$INSTALL_DIR"/."$(basename $f)"
 done
 
