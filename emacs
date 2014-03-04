@@ -69,3 +69,7 @@
 				       (setq cider-repl-tab-command 'cider-repl-indent-and-complete-symbol)
 				       (setq cider-popup-stacktraces nil)
 				       (setq cider-repl-use-clojure-font-lock t))))
+
+
+;;;; Visual Appearance ;;;;
+(tool-bar-mode -1)
