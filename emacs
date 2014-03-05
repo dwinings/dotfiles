@@ -4,7 +4,8 @@
 (add-to-list 'package-archives
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
-(package-refresh-contents)
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 
 (defvar my-packages '(clojure-mode
@@ -12,7 +13,8 @@
 		      cider
 		      paredit
 		      evil
-		      smart-tab))
+		      smart-tab
+          multi-web-mode))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -20,6 +22,7 @@
 
 
 (setq explicit-shell-file-name "/usr/bin/fish")
+(setq inhibit-startup-screen t)
 
 ;;;; Clojure Slime Setup ;;;;
 
@@ -49,6 +52,8 @@
 (define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
 (define-key evil-visual-state-map (kbd "TAB") 'indent-region)
 (define-key evil-normal-state-map (kbd "q") 'evil-undefine)
+(define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
+(define-key evil-insert-state-map (kbd "C-a") 'beginning-of-line)
 
 ;;;; Keyboard Macros ;;;;
 (fset 'eval-from-normal-mode
@@ -65,11 +70,27 @@
 ;;;; FT Specific Hooks ;;;;
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 (add-hook 'clojure-mode-hook 'show-paren-mode)
-(add-hook 'cider-mode-hook (lambda () ((cider-turn-on-eldoc-mode)
-				       (setq cider-repl-tab-command 'cider-repl-indent-and-complete-symbol)
+(add-hook 'clojure-mode-hook 'eldoc-mode)
+(add-hook 'cider-mode-hook (lambda () (setq cider-repl-tab-command 'cider-repl-indent-and-complete-symbol)
 				       (setq cider-popup-stacktraces nil)
-				       (setq cider-repl-use-clojure-font-lock t))))
+				       (setq cider-repl-use-clojure-font-lock t)))
 
+(require 'multi-web-mode)
+(setq mweb-default-major-mode 'html-mode)
+(setq mweb-tags 
+  '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
+    (js-mode  "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
+    (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
+(setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
+(multi-web-global-mode 1)
 
 ;;;; Visual Appearance ;;;;
 (tool-bar-mode -1)
+
+
+
+;;;; Finally... ;;;;
+
+;; Don't want any garbage cluttering the screen.
+(add-hook 'emacs-startup-hook
+          (lambda () (delete-other-windows)) t)
