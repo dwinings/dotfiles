@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/bundle/nerdcommenter/plugin/NERD_commenter.vim

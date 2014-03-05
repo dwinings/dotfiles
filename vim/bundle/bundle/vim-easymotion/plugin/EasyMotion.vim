@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/bundle/vim-easymotion/plugin/EasyMotion.vim

@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/bundle/syntastic/syntax_checkers/html/w3.vim

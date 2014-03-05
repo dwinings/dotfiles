@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/colors/eclm_wombat.vim

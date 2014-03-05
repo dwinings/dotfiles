@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/colors/d8g_01.vim

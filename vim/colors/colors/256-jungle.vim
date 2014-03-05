@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/colors/256-jungle.vim

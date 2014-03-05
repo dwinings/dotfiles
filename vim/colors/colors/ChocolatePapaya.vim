@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/colors/ChocolatePapaya.vim

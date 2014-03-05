@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/bundle/VimClojure/syntax/clojure.vim

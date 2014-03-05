@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/bundle/vim-rainbow-parenthesis/after/syntax/cpp/rainbow.vim

@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/bundle/ack/plugin/ack.vim

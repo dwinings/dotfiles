@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/bundle/syntastic/syntax_checkers/erlang_check_file.erl

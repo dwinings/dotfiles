@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/scripts/scripts/installer.sh

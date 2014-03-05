@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/bundle/vim-slime/plugin/slime.vim

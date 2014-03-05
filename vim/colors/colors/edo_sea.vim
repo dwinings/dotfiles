@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/colors/edo_sea.vim

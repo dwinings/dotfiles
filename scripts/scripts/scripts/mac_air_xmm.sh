@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/scripts/scripts/mac_air_xmm.sh

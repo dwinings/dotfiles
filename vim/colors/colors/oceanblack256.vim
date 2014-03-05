@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/colors/oceanblack256.vim

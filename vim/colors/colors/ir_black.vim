@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/colors/ir_black.vim

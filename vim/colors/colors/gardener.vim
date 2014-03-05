@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/colors/gardener.vim

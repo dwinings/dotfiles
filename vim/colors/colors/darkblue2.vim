@@ -1,0 +1,1 @@
+/home/wisp/dotfiles/vim/colors/darkblue2.vim
