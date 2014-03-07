@@ -76,13 +76,24 @@
 				       (setq cider-repl-use-clojure-font-lock t)))
 
 (require 'multi-web-mode)
-(setq mweb-default-major-mode 'html-mode)
-(setq mweb-tags 
+(setq-default mweb-default-major-mode 'html-mode)
+(setq-default mweb-tags
   '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
-    (js-mode  "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
+    (js-mode  "\\(<script>\\|<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>\\)" "</script>")
     (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
-(setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
+(setq-default mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
 (multi-web-global-mode 1)
+
+
+;;;; C Mode Stuff ;;;;
+(require 'cc-mode)
+
+(setq-default c-default-style "k&r"
+	      c-basic-offset 4
+	      c-tab-always-indent t
+	      backward-delete-function nil)
+
+(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 
 ;;;; Visual Appearance ;;;;
 (tool-bar-mode -1)
