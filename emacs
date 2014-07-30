@@ -23,6 +23,7 @@
 
 (setq explicit-shell-file-name "/usr/bin/fish")
 (setq inhibit-startup-screen t)
+(setq-default show-trailing-whitespace t)
 
 ;;;; Clojure Slime Setup ;;;;
 
@@ -73,7 +74,9 @@
 (add-hook 'clojure-mode-hook 'eldoc-mode)
 (add-hook 'cider-mode-hook (lambda () (setq cider-repl-tab-command 'cider-repl-indent-and-complete-symbol)
 				       (setq cider-popup-stacktraces nil)
-				       (setq cider-repl-use-clojure-font-lock t)))
+				       (setq cider-repl-use-clojure-font-lock t)
+				       (setq nrepl-popup-stacktraces nil)
+				       (setq nrepl-popup-stacktraces-in-repl t)))
 
 (require 'multi-web-mode)
 (setq-default mweb-default-major-mode 'html-mode)
@@ -83,6 +86,11 @@
     (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
 (setq-default mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
 (multi-web-global-mode 1)
+
+(add-hook 'java-mode-hook
+	  '(lambda ()
+	     (setq c-basic-offset 2)
+	     (setq indent-tabs-mode nil)))
 
 
 ;;;; C Mode Stuff ;;;;
