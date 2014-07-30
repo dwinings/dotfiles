@@ -1,0 +1,20 @@
+Config { font = "-*-terminus-medium-*-*-*-*-*-72-72-*-*-*-u"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 100
+       , lowerOnStart = True
+       , commands = [ Run Network "wlan0" ["-L","200","-M","1000", "-H", "3000","--normal","green","--high","red"] 10
+                    , Run Cpu ["-L","20","-H","70","--normal","green","--high","red"] 10
+                    , Run CoreTemp [ "-t", "Temp: <core0>C", "-L", "70", "-H", "95"] 10
+                    , Run Com "cpufreq-info" ["-f", "-m"] "cpufreq" 2
+                    , Run Memory ["-t","Mem: <usedratio>%", "green"] 10
+                    , Run Swap [] 10
+                    , Run Com "uname" ["-o", "-m", "-r"] "" 36000
+                    , Run Date "%a %b %_d %k:%M" "date" 10
+                    , Run Com "~/.scripts/last_said.sh" [] "irc" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% | %memory% | %coretemp% -- %cpufreq% |  %wlan0%    <fc=#ee9a00>%date%</fc>"
+       }
